@@ -1,8 +1,10 @@
 import base64
 import binascii
 import hashlib
+
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
+
 
 def decrypt(cipher, yibanId):
     cipher = base64.b64decode(cipher).hex()
