@@ -98,15 +98,15 @@ Default Behavior:
 >
 > ```python
 > def to_wrong(answer):
->        """
->        Customize the wrong answer based on the correct one.
->        This function is triggered for fill-in-the-blank questions.
->        """
->        if isinstance(answer, str):
->            return '.'
->        else:
->            return [to_wrong(item) for item in answer]
->    ```
+>     """
+>     Customize the wrong answer based on the correct one.
+>     This function is triggered for fill-in-the-blank questions.
+>     """
+>     if isinstance(answer, str):
+>         return '.'
+>     else:
+>         return [to_wrong(item) for item in answer]
+> ```
 
 You can modify the `to_wrong()` function by applying more complex logic for different types of answers in the specific exam.
 
