@@ -27,7 +27,7 @@ pip install -r requirements.txt
 
 ## Configuration
 
-The configuration file `config.json` file contains your credentials and settings for the automated exam process. You can manually gather the necessary information and insert it into the configuration file.
+The configuration file `config.json` contains your credentials and settings for the automated exam process. You can manually gather the necessary information and insert it into the configuration file.
 
 ```json
 {
@@ -49,23 +49,31 @@ Parameters in `config.json`:
 - **time**: The expected exam duration, in minutes.
 - **accuracy**: The expected accuracy level for the answers (as a percentage, e.g., 80 for 80%).
 
-How to find required values:
+### How to find the required values:
 
-- `user_token` and `sessionid`:
-   After logging in to [yooc.me](https://yooc.me/mobile/dashboard), open your browser's developer tools (usually `F12` or `Ctrl+Shift+I`). Navigate to the **Network** tab, and look for **Cookies**. You will find `user_token` and `sessionid` in the list. Copy their values and paste them into the `config.json` file.
-- `examId`:
-   Go to the **Exam Details** page. If you're using a browser's developer tools, inspect the **Network** tab while the page loads, and look for the API request that retrieves the exam data. The request URL or response will contain the `examId`. Alternatively, the `examId` can sometimes be found directly in the page's URL.
+#### `user_token` and `sessionid`:
+1. Log in to [yooc.me](https://yooc.me/mobile/dashboard) in your web browser.
+2. Open your browser's **Developer Tools** (usually by pressing `F12` or `Ctrl+Shift+I`).
+3. Navigate to the **Network** tab and look for **Cookies**.
+4. You will find the `user_token` and `sessionid` stored in the list.
+5. Copy their values and paste them into the `config.json` file.
+
+#### `examId`:
+1. Go to the **Exam Details** page in your browser.
+2. Open your **Developer Tools** again and navigate to the **Network** tab.
+3. Look for the request whose URL starts with `https://exambackend.yooc.me/api/exam/list/get`.
+4. Click on that request, and in the **Response** section, the response will contain the `examId` of the exam.
+5. Copy the `examId` value and paste it into the `config.json` file.
 
 Make sure all the values are correctly copied into the `config.json` file for the script to function properly.
 
 ## Usage
 
 1. Ensure your `config.json` file is properly configured with your credentials and preferences.
-
 2. Run the script with:
 
    ```bash
-   python exam_script.py
+   python yooc_exam.py
    ```
 
 This will start the automated exam process. If you need to pass specific parameters or configure the script further, refer to the configuration section for more details.
@@ -102,7 +110,7 @@ Default Behavior:
 
 You can modify the `to_wrong()` function by applying more complex logic for different types of answers in the specific exam.
 
-### Adjusting noise in the Script
+### Adjusting Noise in the Script
 
 The script simulates human-like duration in the exam. This delay is randomized based on the `noise` factor in `yooc_exam.py`.
 
