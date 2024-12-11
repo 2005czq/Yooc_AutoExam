@@ -1,8 +1,11 @@
 # Yooc_AutoExam
 
-A Python script which finishes the exam in [YOOC](https://www.yooc.me/) without a question bank automatically.
+[English Doc](./README.md) | [中文文档](./README-zh_CN.md)
+
+A Python script which finishes the exam in [YOOC](https://www.yooc.me/) **without a question bank** automatically.
 
 ## Table of Contents
+
 - [Requirements](#requirements)
 - [Configuration](#configuration)
 - [Usage](#usage)
@@ -27,7 +30,7 @@ pip install -r requirements.txt
 
 ## Configuration
 
-The configuration file `config.json` contains your credentials and settings for the automated exam process. You can manually gather the necessary information and insert it into the configuration file.
+The configuration file `config.json` contains your credentials and settings for the automated exam. You can manually gather the necessary information and insert it into the configuration file.
 
 ```json
 {
@@ -45,13 +48,14 @@ Parameters in `config.json`:
 
 - **user_token**: The token for user authentication.
 - **sessionid**: The session ID for user session management.
-- **examId**: The ID of the exam you want to participate in.
+- **examId**: The ID of the exam to be taken.
 - **time**: The expected exam duration, in minutes.
 - **accuracy**: The expected accuracy level for the answers (as a percentage, e.g., 80 for 80%).
 
 ### How to find the required values:
 
 #### `user_token` and `sessionid`:
+
 1. Log in to [yooc.me](https://yooc.me/mobile/dashboard) in your web browser.
 2. Open your browser's **Developer Tools** (usually by pressing `F12` or `Ctrl+Shift+I`).
 3. Navigate to the **Network** tab and look for **Cookies**.
@@ -59,6 +63,7 @@ Parameters in `config.json`:
 5. Copy their values and paste them into the `config.json` file.
 
 #### `examId`:
+
 1. Go to the **Exam Details** page in your browser.
 2. Open your **Developer Tools** again and navigate to the **Network** tab.
 3. Look for the request whose URL starts with `https://exambackend.yooc.me/api/exam/list/get`.
@@ -70,19 +75,22 @@ Make sure all the values are correctly copied into the `config.json` file for th
 ## Usage
 
 1. Ensure your `config.json` file is properly configured with your credentials and preferences.
+
 2. Run the script with:
 
    ```bash
    python yooc_exam.py
    ```
 
-This will start the automated exam process. If you need to pass specific parameters or configure the script further, refer to the configuration section for more details.
+   This will start the automated exam.
+
+3. Waiting for the script test. Generally speaking, the waiting duration is roughly equal to the expected test duration.
 
 ## Notes
 
 - This script is **for educational purposes only**. I am not responsible for any consequences that may arise from the use of this script. Please ensure you comply with all relevant laws, terms of service, and ethical guidelines when using this script.
 - The accuracy level for the answers is based on the desired percentage. The script will attempt to modify the answers to achieve this accuracy.
-- The duration of the exam is randomized to mimic human-like behavior.
+- The actual exam duration will incorporate a small amount of noise to simulate human behavior.
 
 ## Customization
 
@@ -112,7 +120,7 @@ You can modify the `to_wrong()` function by applying more complex logic for diff
 
 ### Adjusting Noise in the Script
 
-The script simulates human-like duration in the exam. This delay is randomized based on the `noise` factor in `yooc_exam.py`.
+The script will incorporate noise in the test duration. This noise is based on the `noise` parameters in `yooc_exam.py`.
 
 ```python
 noise = 0.1  # noise of sleep time
@@ -123,5 +131,3 @@ Its default value is `0.1`, which means there is a 10% discrepancy between the a
 ## License
 
 This project is licensed under the **MIT License**. See the [LICENSE](./LICENSE) file for more details.
-
-You are free to use, modify, and distribute this software, provided that the original copyright notice and this permission notice are included in all copies or substantial portions of the software. The software is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and noninfringement.
