@@ -130,4 +130,4 @@ Its default value is `0.1`, which means there is a 10% discrepancy between the a
 
 ## License
 
-This project is licensed under the **MIT License**. See the [LICENSE](./LICENSE) file for more details.
+This project is licensed under the **GNU General Public License v3.0**. See the [LICENSE](./LICENSE) file for more details.

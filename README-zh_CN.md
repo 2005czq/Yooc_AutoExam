@@ -130,4 +130,4 @@ noise = 0.1  # 延迟时间的噪声
 
 ## 开源许可
 
-本项目采用 **MIT 许可证**。详细内容请参阅 [LICENSE](./LICENSE) 文件。
+本项目采用 **GNU General Public License v3.0**。详细内容请参阅 [LICENSE](./LICENSE) 文件。
